@@ -19,6 +19,7 @@ namespace Arcaim.CQRS.Commands
             {
                 throw new ArgumentNullException(nameof(command), $"Command '{typeof(T).Name}' can not be null");
             }
+
             await _componentContext.Resolve<ICommandHandler<T>>()
                                    .HandleAsync(command);
         }

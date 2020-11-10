@@ -1,15 +1,15 @@
-using System.Reflection;
+using System;
 using Autofac;
 
 namespace Arcaim.CQRS.Commands
 {
-    public abstract class CommandModule : Autofac.Module
+    public class CommandModule : Autofac.Module
     {
-        protected abstract Assembly GetAssembly();
-
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterAssemblyTypes(GetAssembly())
+            var assembly = AppDomain.CurrentDomain.GetAssemblies();
+
+            builder.RegisterAssemblyTypes(assembly)
                 .AsClosedTypesOf(typeof(ICommandHandler<>))
                 .InstancePerLifetimeScope();
 

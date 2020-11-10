@@ -10,7 +10,7 @@
     <Title>Arcaim.CQRS.Commands</Title>
     <PackageId>Arcaim.CQRS.Commands</PackageId>
     <Company>Arcaim</Company>
-    <Version>1.0.6</Version>
+    <Version>1.0.7</Version>
   </PropertyGroup>
 
   <ItemGroup>
