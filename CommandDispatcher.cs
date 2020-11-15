@@ -1,27 +1,21 @@
 using System;
 using System.Threading.Tasks;
-using Autofac;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Arcaim.CQRS.Commands
 {
     public class CommandDispatcher : ICommandDispatcher
     {
-        private readonly IComponentContext _componentContext;
+        private readonly IServiceScopeFactory _serviceFactory;
 
-        public CommandDispatcher(IComponentContext componentContext)
+        public CommandDispatcher(IServiceScopeFactory serviceFactory)
+            => _serviceFactory = serviceFactory;
+
+        public async Task HandleAsync<T>(T command) where T : ICommand
         {
-            _componentContext = componentContext;
-        }
-
-        public async Task DispatchAsync<T>(T command) where T : ICommand
-        {
-            if (command == null)
-            {
-                throw new ArgumentNullException(nameof(command), $"Command '{typeof(T).Name}' can not be null");
-            }
-
-            await _componentContext.Resolve<ICommandHandler<T>>()
-                                   .HandleAsync(command);
+            using var scope = _serviceFactory.CreateScope();
+            var handler = scope.ServiceProvider.GetRequiredService<ICommandHandler<T>>();
+            await handler.HandleAsync(command);
         }
     }
 }
