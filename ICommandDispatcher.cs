@@ -4,6 +4,6 @@ namespace Arcaim.CQRS.Commands
 {
     public interface ICommandDispatcher
     {
-        Task HandleAsync<T>(T command) where T : ICommand;
+        Task DispatchAsync<T>(T command) where T : ICommand;
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,7 +10,7 @@ namespace Arcaim.CQRS.Commands
         public CommandDispatcher(IServiceScopeFactory serviceFactory)
             => _serviceFactory = serviceFactory;
 
-        public async Task HandleAsync<T>(T command) where T : ICommand
+        public async Task DispatchAsync<T>(T command) where T : ICommand
         {
             using var scope = _serviceFactory.CreateScope();
             var handler = scope.ServiceProvider.GetRequiredService<ICommandHandler<T>>();
