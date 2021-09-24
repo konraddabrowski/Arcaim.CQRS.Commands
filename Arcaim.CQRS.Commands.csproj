@@ -10,11 +10,11 @@
         <Title>Arcaim.CQRS.Commands</Title>
         <PackageId>Arcaim.CQRS.Commands</PackageId>
         <Company>Arcaim</Company>
-        <Version>1.1.0</Version>
+        <Version>1.3.0</Version>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Arcaim.DI.Scanner" Version="1.0.1" />
+        <PackageReference Include="Arcaim.DI.Scanner" Version="1.0.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
