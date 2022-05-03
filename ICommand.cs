@@ -1,6 +1,5 @@
-namespace Arcaim.CQRS.Commands
+namespace Arcaim.CQRS.Commands;
+
+public interface ICommand
 {
-    public interface ICommand
-    {
-    }
 }

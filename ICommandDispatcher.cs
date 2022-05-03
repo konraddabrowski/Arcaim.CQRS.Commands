@@ -1,9 +1,8 @@
 using System.Threading.Tasks;
 
-namespace Arcaim.CQRS.Commands
+namespace Arcaim.CQRS.Commands;
+
+public interface ICommandDispatcher
 {
-    public interface ICommandDispatcher
-    {
-        Task DispatchAsync<T>(T command) where T : class, ICommand;
-    }
+  Task DispatchAsync<T>(T command) where T : class, ICommand;
 }
