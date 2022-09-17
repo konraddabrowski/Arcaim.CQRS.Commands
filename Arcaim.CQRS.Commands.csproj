@@ -1,23 +1,30 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <Description>The CQRS Commands library</Description>
-        <Authors>Konrad Dąbrowski</Authors>
-        <TargetFramework>net6.0</TargetFramework>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <LangVersion>Latest</LangVersion>
-        <AssemblyName>Arcaim.CQRS.Commands</AssemblyName>
-        <Title>Arcaim.CQRS.Commands</Title>
-        <PackageId>Arcaim.CQRS.Commands</PackageId>
-        <Company>Arcaim</Company>
-        <Version>6.0.2</Version>
-    </PropertyGroup>
+  <PropertyGroup>
+    <Description>The CQRS Commands library</Description>
+    <Authors>Konrad Dąbrowski</Authors>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>preview</LangVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <!-- <LangVersion>Latest</LangVersion> -->
+    <AssemblyName>Arcaim.CQRS.Commands</AssemblyName>
+    <Title>Arcaim.CQRS.Commands</Title>
+    <PackageId>Arcaim.CQRS.Commands</PackageId>
+    <Company>Arcaim</Company>
+    <Version>6.0.2</Version>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Arcaim.DI.Scanner" Version="6.0.1" />
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0">
-            <PrivateAssets>all</PrivateAssets>
-        </PackageReference>
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Arcaim.DI.Scanner" Version="7.0.0-preview7" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0-preview.7.22375.6">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  
+  <!-- <ItemGroup>
+    <ProjectReference Include="..\Arcaim.DI.Scanner\Arcaim.DI.Scanner.csproj" />
+  </ItemGroup> -->
 
 </Project>
